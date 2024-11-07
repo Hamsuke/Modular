@@ -3,14 +3,15 @@
 
 #include "Piezas/tablero.cpp"
 
-
-
 void menuPrin(int *turn) {
-    printf("Eliga una pieza");
     if(*turn == 1) {
+        printf("Turno de jugador Blanco\n");
+        printf("Eliga una pieza\n");
         menuB();
         (*turn)--;
     }else {
+        printf("Turno de jugador Negro\n");
+        printf("Eliga una pieza\n");
         menuN();
         (*turn)++;
     }
@@ -20,10 +21,8 @@ int main(void){
     bool RNV;
     bool RBV;
     int turno = 1;
-
-    setlocale(LC_CTYPE, "");
+    setlocale(LC_CTYPE, "en_US.UTF-8");
     setTablero();
-
     do {
         RNV = false;
         RBV = false;

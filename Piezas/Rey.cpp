@@ -5,50 +5,50 @@
 #include "Pieza.h"
 
 void arriba(struct pieza p[8][8], int x, int y){
-    if( strcmp(p[y+1][x].simbolo,"") == 0) {
-        p[y+1][x].simbolo = Ar;
+    if( strcmp(p[x][y+1].simbolo,"") == 0) {
+        p[x][y+1].simbolo = Ar;
     }
 }
 
 void abajo(struct pieza p[8][8], int x, int y){
-    if( strcmp(p[y-1][x].simbolo, "") == 0 ) {
-        p[y-1][x].simbolo = Ab;
+    if( strcmp(p[x][y-1].simbolo, "") == 0 ) {
+        p[x][y-1].simbolo = Ab;
     }
 }
 
 void izquierda(struct pieza p[8][8], int x, int y){
-    if( strcmp(p[y][x-1].simbolo, "") == 0 ) {
-        p[y][x-1].simbolo = Izq;
+    if( strcmp(p[x-1][y].simbolo, "") == 0 ) {
+        p[x-1][y].simbolo = Izq;
     }
 }
 
 void derecha(struct pieza p[8][8], int x, int y){
-    if( strcmp(p[y][x+1].simbolo, "") == 0 ) {
-        p[y][x+1].simbolo = Der;
+    if( strcmp(p[x+1][y].simbolo, "") == 0 ) {
+        p[x+1][y].simbolo = Der;
     }
 }
 
 void diagAI(struct pieza p[8][8], int x, int y){
-    if( strcmp(p[y+1][x-1].simbolo, "") == 0 ) {
-        p[y+1][x-1].simbolo = DiAI;
+    if( strcmp(p[x-1][y+1].simbolo, "") == 0 ) {
+        p[x-1][y+1].simbolo = DiAI;
     }
 }
 
 void diagAD(struct pieza p[8][8], int x, int y){
-    if( strcmp(p[y+1][x+1].simbolo, "") == 0 ) {
-        p[y+1][x+1].simbolo = DiAD;
+    if( strcmp(p[x+1][y+1].simbolo, "") == 0 ) {
+        p[x+1][y+1].simbolo = DiAD;
     }
 }
 
 void diagAbI(struct pieza p[8][8], int x, int y){
-    if( strcmp(p[y-1][x-1].simbolo, "") == 0 ) {
-        p[y-1][x-1].simbolo = DiAbI;
+    if( strcmp(p[x-1][y-1].simbolo, "") == 0 ) {
+        p[x-1][y-1].simbolo = DiAbI;
     }
 }
 
 void diagAbD(struct pieza p[8][8], int x, int y){
-    if( strcmp(p[y-1][x+1].simbolo, "") == 0 ) {
-        p[y-1][x+1].simbolo = DiAbD;
+    if( strcmp(p[x+1][y-1].simbolo, "") == 0 ) {
+        p[x+1][y-1].simbolo = DiAbD;
     }
 }
 
