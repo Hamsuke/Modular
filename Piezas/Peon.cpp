@@ -13,3 +13,7 @@ void diagAI() {
 void diagDI() {
 
 }
+
+void corona() {
+
+}

@@ -2,7 +2,11 @@
 // Created by victo on 05/11/2024.
 //
 
-void arriba(int actY){
+void checkMov(struct pieza copy[][], int x, int y) {
+
+}
+
+void arriba(struct tablero tab[][]){
     if(actY+1 > 8){
         cout<<"Movimiento no valido"<<endl;
     }else{

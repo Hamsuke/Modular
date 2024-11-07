@@ -1,27 +1,9 @@
 #include <stdio.h>
 #include <locale.h>
 
-#include "tablero.cpp"
+#include "Piezas/tablero.cpp"
 
-void menuB(){
-    int X;
-    char Y;
-    listaPiezas('b');
-    printf("Ingresa la fila de la pieza /n");
-    scanf("%d",&X);
-    printf("Ingresa la columna de la pieza /n");
-    scanf("%c",&Y);
-}
 
-void menuN(){
-    int X;
-    char Y;
-    listaPiezas('n');
-    printf("Ingresa la fila de la pieza /n");
-    scanf("%d",&X);
-    printf("Ingresa la columna de la pieza /n");
-    scanf("%c",&Y);
-}
 
 void menuPrin(int *turn) {
     printf("Eliga una pieza");

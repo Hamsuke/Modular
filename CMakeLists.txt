@@ -9,4 +9,5 @@ add_executable(Chess main.c
         Piezas/Reina.cpp
         Piezas/Peon.cpp
         Piezas/Caballo.cpp
-        Piezas/Alfil.cpp)
+        Piezas/Alfil.cpp
+        Piezas/tablero.cpp)
