@@ -28,7 +28,7 @@ int main(void){
         RBV = false;
         printTablero(&RNV, &RBV);
         menuPrin(&turno);
-    }while (RNV && RBV );
+    }while (RNV && RBV);
     if(RBV == false){
         printf("Jugador negro gana");
     } else{
