@@ -159,8 +159,8 @@ void menuB(){
     scanf("%c",&col);
     scanf("%c",&col);
     Y = charaNum(col);
-    if(strcmp(tablero[X][Y].simbolo, "♔") == 0) {
-        MenuR(tablero, X,Y);
+    if(strcmp(tablero[X-1][Y].simbolo, "♔") == 0) {
+        menuR(tablero, X-1,Y);
     }
 }
 
