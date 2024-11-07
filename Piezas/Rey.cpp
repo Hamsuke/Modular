@@ -3,6 +3,7 @@
 //
 
 #include "Pieza.h"
+#include "Rey.h"
 
 void arriba(struct pieza p[8][8], int x, int y){
     if( strcmp(p[x][y+1].simbolo,"") == 0) {

@@ -4,7 +4,11 @@
 
 #include "Pieza.h"
 #include "Rey.cpp"
-
+#include "Reina.cpp"
+#include "Peon.cpp"
+#include "Alfil.cpp"
+//#include "Caballo.cpp"
+//#include "Torre.cpp"
 
 struct pieza tablero[8][8];
 
@@ -19,11 +23,11 @@ void setTablero() {
     for (int i = 0; i < 8; i++) {
         //Peon Blanco
         tablero[6][i].color = 'b';
-        tablero[6][i].simbolo = "♙";
+        tablero[6][i].simbolo = "?";
 
         //Peon Negro
         tablero[1][i].color = 'n';
-        tablero[1][i].simbolo = "♟";
+        tablero[1][i].simbolo = "?";
     }
 
     //Piezas negras
