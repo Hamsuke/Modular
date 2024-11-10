@@ -5,11 +5,11 @@
 #ifndef ALFIL_H
 #define ALFIL_H
 
-void diagAbD(struct pieza p[8][8], int x, int y);
-void diagAbI(struct pieza p[8][8], int x, int y);
-void diagAD(struct pieza p[8][8], int x, int y);
-void diagAI(struct pieza p[8][8], int x, int y);
-void checkMov(struct pieza tablero[8][8], int x, int y);
+void diaAbD(struct pieza p[8][8], int x, int y);
+void diaAbI(struct pieza p[8][8], int x, int y);
+void diaAD(struct pieza p[8][8], int x, int y);
+void diaAI(struct pieza p[8][8], int x, int y);
+void checkMovAl(struct pieza tablero[8][8], int x, int y);
 void menuAl(struct pieza tablero[8][8], int x, int y);
 
 #endif //ALFIL_H

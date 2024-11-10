@@ -9,7 +9,9 @@ void arriba(struct pieza p[8][8], int x, int y);
 void abajo(struct pieza p[8][8], int x, int y);
 void derecha(struct pieza p[8][8], int x, int y);
 void izquierda(struct pieza p[8][8], int x, int y);
-void menuR(struct pieza tablero[8][8], int x, int y);
+
+void checkMov(struct pieza tablero[8][8]);
+void menuT(struct pieza tablero[8][8], int x, int y);
 
 
 #endif //TORRE_H

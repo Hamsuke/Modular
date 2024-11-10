@@ -7,6 +7,8 @@
 #include "Reina.cpp"
 #include "Peon.cpp"
 #include "Alfil.cpp"
+
+
 //#include "Caballo.cpp"
 //#include "Torre.cpp"
 
@@ -16,18 +18,18 @@ void setTablero() {
 
     for(int i = 0; i < 8; i++){
         for(int j = 0; j < 8; j++){
-            tablero[i][j].simbolo = "";
+            tablero[i][j].simbolo = " ";
         }
     }
 
     for (int i = 0; i < 8; i++) {
         //Peon Blanco
         tablero[6][i].color = 'b';
-        tablero[6][i].simbolo = "?";
+        tablero[6][i].simbolo = "♙";
 
         //Peon Negro
         tablero[1][i].color = 'n';
-        tablero[1][i].simbolo = "?";
+        tablero[1][i].simbolo = "♟";
     }
 
     //Piezas negras
@@ -53,8 +55,8 @@ void setTablero() {
 
     //Piezas Blancas
     //Rey [fila][columna]
-    tablero[7][3].color = 'b';
-    tablero[7][3].simbolo = "♔";
+    tablero[4][3].color = 'b';
+    tablero[4][3].simbolo = "♔";
 
     //Reina
     tablero[7][4].color = 'b';
@@ -81,9 +83,10 @@ void printTablero(bool* RB, bool* RN) {
     setlocale(LC_CTYPE, "");
     for (int i = 0; i < 8; i++) {
         for (int j = 0; j < 8; j++) {
-            if(strcmp(tablero[i][j].simbolo, "") == 0) {
+
+            if(strcmp(tablero[i][j].simbolo, " ") == 0) {
             }else {
-                printf("%s  ",tablero[i][j].simbolo);
+                printf("%s",tablero[i][j].simbolo);
             }
             if (strcmp(tablero[i][j].simbolo, "♚") == 0) {
                 *RN = true;
@@ -143,9 +146,9 @@ void listaPiezas(char C) {
     for(int i = 0; i < 8; i++) {
         for(int j = 0; j < 8; j++) {
             if(tablero[i][j].color == C) {
-                printf("%s  ", tablero[i][j].simbolo);
+                printf("%s", tablero[i][j].simbolo);
                 tmp = numaChar(j);
-                printf("%d %c\n", i + 1, tmp);
+                printf("%d %c", i + 1, tmp);
             }
         }
         printf("\n");
@@ -164,7 +167,19 @@ void menuB(){
     scanf("%c",&col);
     Y = charaNum(col);
     if(strcmp(tablero[X-1][Y].simbolo, "♔") == 0) {
-        menuR(tablero, X-1,Y);
+        menuR(tablero,X-1,Y);
+    } else if(strcmp(tablero[X-1][Y].simbolo, "♙") == 0){
+        peonB(tablero, X - 1, Y);
+    } else if(strcmp(tablero[X-1][Y].simbolo, "♗") == 0){
+
+    } else if(strcmp(tablero[X-1][Y].simbolo, "♖") == 0){
+
+    } else if(strcmp(tablero[X-1][Y].simbolo, "♘") == 0){
+
+    } else if(strcmp(tablero[X-1][Y].simbolo, "♕") == 0){
+
+    } else{
+        printf("Pieza no valida");
     }
 }
 
@@ -172,11 +187,26 @@ void menuN(){
     int X;
     int Y;
     char col;
-
     listaPiezas('n');
     printf("Ingresa la fila de la pieza");
     scanf("%d",&X);
     printf("Ingresa la columna de la pieza");
     scanf("%c",&col);
+    scanf("%c",&col);
+    Y = charaNum(col);
+    if(strcmp(tablero[X-1][Y].simbolo, "♚") == 0) {
+        menuR(tablero,X-1,Y);
+    } else if(strcmp(tablero[X-1][Y].simbolo, "♟") == 0){
+        peonN(tablero, X - 1, Y);
+    } else if(strcmp(tablero[X-1][Y].simbolo, "♝") == 0){
 
+    } else if(strcmp(tablero[X-1][Y].simbolo, "♜") == 0){
+
+    } else if(strcmp(tablero[X-1][Y].simbolo, "♞") == 0){
+
+    } else if(strcmp(tablero[X-1][Y].simbolo, "♕") == 0){
+
+    } else{
+        printf("Pieza no valida");
+    }
 }

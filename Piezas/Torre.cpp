@@ -2,38 +2,50 @@
 // Created by victo on 05/11/2024.
 //
 
-void checkMov(struct pieza copy[][], int x, int y) {
+#include "Pieza.h"
+#include "Torre.h"
 
-}
-
-void arriba(struct tablero tab[][]){
-    if(actY+1 > 8){
-        cout<<"Movimiento no valido"<<endl;
-    }else{
-        cout<<"Movimiento valido"<<endl;
+void checkMov(struct pieza copy[8][8], int x, int y) {
+    arriba(copy, x, y);
+    abajo(copy, x, y);
+    derecha(copy, x, y);
+    izquierda(copy, x, y);
+    setlocale(LC_CTYPE, "");
+    for (int i = 0; i < 8; i++) {
+        for (int j = 0; j < 8; j++) {
+            if(strcmp(copy[i][j].simbolo, " ") == 0) {
+            }else {
+                printf("%s ",copy[i][j].simbolo);
+            }
+        }
+        printf("\n");
     }
 }
 
-void abajo(int actY){
-    if(actY-1 < 1){
-        cout<<"Movimiento no valido"<<endl;
-    }else{
-        cout<<"Movimiento valido"<<endl;
+void arriba(struct pieza p[8][8], int x, int y){
+    while (y + 1 < 8 && strcmp(p[x][y + 1], " ") == 0){
+        p[x][y+1].simbolo = Ar;
+        y++;
     }
 }
 
-void izquierda(int actX){
-    if(actX-1 < 1){
-        cout<<"Movimiento no valido"<<endl;
-    }else{
-        cout<<"Movimiento valido"<<endl;
+void abajo(struct pieza p[8][8], int x, int y){
+    while (y - 1 > 0 && strcmp(p[x][y - 1], " ") == 0){
+        p[x][y-1].simbolo = Ab;
+        y--;
     }
 }
 
-void derecha(int actX){
-    if(actX+1 > 8){
-        cout<<"Movimiento no valido"<<endl;
-    }else{
-        cout<<"Movimiento valido"<<endl;
+void izquierda(struct pieza p[8][8], int x, int y){
+    while (x - 1 < 8 && strcmp(p[x - 1][y], " ") == 0){
+        p[x - 1][y].simbolo = Izq;
+        y--;
+    }
+}
+
+void derecha(struct pieza p[8][8], int x, int y){
+    while (x + 1 < 8 && strcmp(p[x + 1][y], " ") == 0){
+        p[x + 1][y].simbolo = Der;
+        x++;
     }
 }

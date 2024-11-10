@@ -37,6 +37,6 @@ void menuPrin(int* turn);
 void menuN();
 void menuB();
 
-void listarPiezas(char C);
+void listaPiezas(char C);
 
 #endif //PIEZA_H
