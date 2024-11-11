@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <locale.h>
+#include <stdlib.h>
+
 
 #include "Piezas/tablero.cpp"
 
@@ -18,6 +20,8 @@ void menuPrin(int *turn) {
 }
 
 int main(void){
+
+
     bool RNV;
     bool RBV;
     int turno = 1;

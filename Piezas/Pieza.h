@@ -14,8 +14,6 @@ struct pieza {
     char *simbolo;
 };
 
-
-
 char *DiAI = "↖";
 char *DiAD = "↗";
 char *DiAbI = "↙";

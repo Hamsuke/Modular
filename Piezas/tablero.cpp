@@ -2,15 +2,15 @@
 // Created by victo on 31/10/2024.
 //
 
+
+
 #include "Pieza.h"
 #include "Rey.cpp"
 #include "Reina.cpp"
 #include "Peon.cpp"
 #include "Alfil.cpp"
-
-
-//#include "Caballo.cpp"
-//#include "Torre.cpp"
+#include "Caballo.cpp"
+#include "Torre.cpp"
 
 struct pieza tablero[8][8];
 
@@ -195,7 +195,7 @@ void menuN(){
     scanf("%c",&col);
     Y = charaNum(col);
     if(strcmp(tablero[X-1][Y].simbolo, "♚") == 0) {
-        menuR(tablero,X-1,Y);
+        menuR(tablero,X - 1,Y);
     } else if(strcmp(tablero[X-1][Y].simbolo, "♟") == 0){
         peonN(tablero, X - 1, Y);
     } else if(strcmp(tablero[X-1][Y].simbolo, "♝") == 0){

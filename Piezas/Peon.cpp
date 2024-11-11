@@ -6,50 +6,50 @@
 #include "Peon.h"
 
 void arribaP(struct pieza p[8][8], int x, int y){
-    if( strcmp(p[x][y+1].simbolo,"  ") == 0) {
-        p[x][y+1].simbolo = Ar;
+    if( strcmp(p[x-1][y].simbolo, " ") == 0 ) {
+        p[x-1][y].simbolo = Ar;
     }
 }
 
 void abajoP(struct pieza p[8][8], int x, int y){
-    if( strcmp(p[x][y-1].simbolo, "  ") == 0 ) {
-        p[x][y-1].simbolo = Ab;
-    }
-}
-
-void izquierdaP(struct pieza p[8][8], int x, int y){
-    if( strcmp(p[x-1][y].simbolo, "") == 0 ) {
-        p[x-1][y].simbolo = Izq;
+    if( strcmp(p[x+1][y].simbolo, " ") == 0 ) {
+        p[x+1][y].simbolo = Ab;
     }
 }
 
 void derechaP(struct pieza p[8][8], int x, int y){
-    if( strcmp(p[x+1][y].simbolo, "") == 0 ) {
-        p[x+1][y].simbolo = Der;
+    if( strcmp(p[x][y+1].simbolo," ") == 0) {
+        p[x][y+1].simbolo = Der;
     }
 }
 
-void diagAIP(struct pieza p[8][8], int x, int y){
-    if( strcmp(p[x-1][y+1].simbolo, "") == 0 ) {
-        p[x-1][y+1].simbolo = DiAI;
-    }
-}
-
-void diagADP(struct pieza p[8][8], int x, int y){
-    if( strcmp(p[x+1][y+1].simbolo, "") == 0 ) {
-        p[x+1][y+1].simbolo = DiAD;
-    }
-}
-
-void diagAbIP(struct pieza p[8][8], int x, int y){
-    if( strcmp(p[x-1][y-1].simbolo, "") == 0 ) {
-        p[x-1][y-1].simbolo = DiAbI;
+void izquierdaP(struct pieza p[8][8], int x, int y){
+    if( strcmp(p[x][y-1].simbolo, " ") == 0 ) {
+        p[x][y-1].simbolo = Izq;
     }
 }
 
 void diagAbDP(struct pieza p[8][8], int x, int y){
-    if( strcmp(p[x+1][y-1].simbolo, "") == 0 ) {
-        p[x+1][y-1].simbolo = DiAbD;
+    if( strcmp(p[x+1][y+1].simbolo, " ") == 0 ) {
+        p[x+1][y+1].simbolo = DiAbD;
+    }
+}
+
+void diagAbIP(struct pieza p[8][8], int x, int y){
+    if( strcmp(p[x+1][y-1].simbolo, " ") == 0 ) {
+        p[x+1][y-1].simbolo = DiAbI;
+    }
+}
+
+void diagADP(struct pieza p[8][8], int x, int y){
+    if( strcmp(p[x-1][y+1].simbolo, " ") == 0 ) {
+        p[x-1][y+1].simbolo = DiAD;
+    }
+}
+
+void diagAIP(struct pieza p[8][8], int x, int y){
+    if( strcmp(p[x-1][y-1].simbolo, " ") == 0 ) {
+        p[x-1][y-1].simbolo = DiAI;
     }
 }
 

@@ -4,7 +4,6 @@ project(Chess C)
 set(CMAKE_C_STANDARD 11)
 
 add_executable(Chess main.c
-        Piezas/Torre.cpp
         Piezas/Rey.cpp
         Piezas/Reina.cpp
         Piezas/Peon.cpp
@@ -17,4 +16,5 @@ add_executable(Chess main.c
         Piezas/Torre.h
         Piezas/Peon.h
         Piezas/Caballo.h
+        Piezas/Torre.cpp
 )

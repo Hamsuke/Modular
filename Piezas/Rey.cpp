@@ -5,18 +5,6 @@
 #include "Pieza.h"
 #include "Rey.h"
 
-void derecha(struct pieza p[8][8], int x, int y){
-    if( strcmp(p[x][y+1].simbolo," ") == 0) {
-        p[x][y+1].simbolo = Der;
-    }
-}
-
-void izquierda(struct pieza p[8][8], int x, int y){
-    if( strcmp(p[x][y-1].simbolo, " ") == 0 ) {
-        p[x][y-1].simbolo = Izq;
-    }
-}
-
 void arriba(struct pieza p[8][8], int x, int y){
     if( strcmp(p[x-1][y].simbolo, " ") == 0 ) {
         p[x-1][y].simbolo = Ar;
@@ -29,9 +17,15 @@ void abajo(struct pieza p[8][8], int x, int y){
     }
 }
 
-void diagAD(struct pieza p[8][8], int x, int y){
-    if( strcmp(p[x-1][y+1].simbolo, " ") == 0 ) {
-        p[x-1][y+1].simbolo = DiAD;
+void derecha(struct pieza p[8][8], int x, int y){
+    if( strcmp(p[x][y+1].simbolo," ") == 0) {
+        p[x][y+1].simbolo = Der;
+    }
+}
+
+void izquierda(struct pieza p[8][8], int x, int y){
+    if( strcmp(p[x][y-1].simbolo, " ") == 0 ) {
+        p[x][y-1].simbolo = Izq;
     }
 }
 
@@ -41,19 +35,25 @@ void diagAbD(struct pieza p[8][8], int x, int y){
     }
 }
 
-void diagAI(struct pieza p[8][8], int x, int y){
-    if( strcmp(p[x-1][y-1].simbolo, " ") == 0 ) {
-        p[x-1][y-1].simbolo = DiAI;
-    }
-}
-
 void diagAbI(struct pieza p[8][8], int x, int y){
     if( strcmp(p[x+1][y-1].simbolo, " ") == 0 ) {
         p[x+1][y-1].simbolo = DiAbI;
     }
 }
 
-void checkMov(struct pieza copy[8][8], int x, int y) {
+void diagAD(struct pieza p[8][8], int x, int y){
+    if( strcmp(p[x-1][y+1].simbolo, " ") == 0 ) {
+        p[x-1][y+1].simbolo = DiAD;
+    }
+}
+
+void diagAI(struct pieza p[8][8], int x, int y){
+    if( strcmp(p[x-1][y-1].simbolo, " ") == 0 ) {
+        p[x-1][y-1].simbolo = DiAI;
+    }
+}
+
+void checkMovR(struct pieza copy[8][8], int x, int y) {
     arriba(copy, x, y);
     abajo(copy, x, y);
     derecha(copy, x, y);
@@ -75,10 +75,11 @@ void checkMov(struct pieza copy[8][8], int x, int y) {
 }
 
 void menuR(struct pieza tablero[8][8], int x, int y) {
-    checkMov(tablero, x, y);
+    char col;
+    checkMovR(tablero, x, y);
     printf("A que posicion desea moverse? ");
     printf("Ingresa la fila destino");
-    scanf("%d",&X);
+    scanf("%d",&x);
     printf("Ingresa la columna destino");
     scanf("%c",&col);
     scanf("%c",&col);

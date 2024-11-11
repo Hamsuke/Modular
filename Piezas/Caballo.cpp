@@ -3,51 +3,84 @@
 //
 
 #include "Pieza.h"
+#include "Caballo.h"
 
-void checkArribaI() {
-    if (xAct + 1 < 8 && yAct + 2 < 8) {
-        cout << "1. Movimiento valido: (" << xAct + 1 << "," << yAct + 2 << ")" << endl;
+void ArribaI(struct pieza p[8][8], int x, int y) {
+    if (x + 1 < 8 && y + 2 < 8 && p[x+1][y+2].color != p[x][y].color) {
+        p[x+1][y+2].simbolo = "X";
     }
 }
 
-void checkArribaD(int xAct, int yAct) {
-    if (xAct - 1 >= 0 && yAct + 2 < 8) {
-        cout << "2. Movimiento valido: (" << xAct + 1 << "," << yAct + 2 << ")" << endl;
+void ArribaD(struct pieza p[8][8], int x, int y) {
+    if (x - 1 >= 0 && y + 2 < 8 && p[x-1][y+2].color != p[x][y].color) {
+        p[x-1][y+2].simbolo = "X";
     }
 }
 
-void checkDerechaI(int xAct, int yAct) {
-    if (xAct + 2 < 8 && yAct + 1 < 8) {
-        cout << "3. Movimiento valido: (" << xAct + 2 << "," << yAct + 1 << ")" << endl;
+void DerechaI(struct pieza p[8][8], int x, int y) {
+    if (x + 2 < 8 && y + 1 < 8 && p[x+2][y+1].color != p[x][y].color) {
+        p[x+2][y+1].simbolo = "X";
     }
 }
 
-void checkDerechaD(int xAct, int yAct) {
-    if (xAct + 2 < 8 && yAct - 1 >= 0) {
-        cout << "4. Movimiento valido: (" << xAct + 2 << "," << yAct - 1 << ")" << endl;
+void DerechaD(struct pieza p[8][8], int x, int y) {
+    if (x + 2 < 8 && y - 1 >= 0 && p[x+2][y-1].color != p[x][y].color) {
+        p[x+2][y-1].simbolo = "X";
     }
 }
 
-void checkIzquierdaI(int xAct, int yAct) {
-    if (xAct - 2 >= 0 && yAct - 1 >= 0) {
-        cout << "5. Movimiento valido: (" << xAct - 2 << "," << yAct - 1 << ")" << endl;
+void IzquierdaI(struct pieza p[8][8], int x, int y) {
+    if (x - 2 >= 0 && y - 1 >= 0 && p[x-2][y-1].color != p[x][y].color) {
+        p[x-2][y-1].simbolo = "X";
     }
 }
 
-void checkIzquierdaD(int xAct, int yAct) {
-    if (xAct - 2 >= 0 && yAct + 1 < 8) {
-        cout << "6. Movimiento valido: (" << xAct - 2 << "," << yAct + 1 << ")" << endl;
+void IzquierdaD(struct pieza p[8][8], int x, int y) {
+    if (x - 2 >= 0 && y + 1 < 8 && p[x-2][y+1].color != p[x][y].color) {
+        p[x-2][y+1].simbolo = "X";
     }
 }
 
-void checkAbajoI(int xAct, int yAct) {
-    if (xAct - 1 >= 0 && yAct - 2 >= 0) {
-        cout << "7. Movimiento valido: (" << xAct - 1 << "," << yAct - 2 << ")" << endl;
+void AbajoI(struct pieza p[8][8], int x, int y) {
+    if (x - 1 >= 0 && y - 2 >= 0 && p[x-1][y-2].color != p[x][y].color) {
+        p[x-1][y-2].simbolo = "X";
     }
 }
 
-void checkAbajoD(int xAct, int yAct) {
-    if (xAct + 1 < 8 && yAct - 2 >= 0) {
-        cout << "8. Movimiento valido: (" << xAct + 1 << "," << yAct - 2 << ")" << endl;
+void AbajoD(struct pieza p[8][8], int x, int y) {
+    if (x + 1 < 8 && y - 2 >= 0 && p[x+1][y-2].color != p[x][y].color) {
+        p[x+1][y-2].simbolo = "X";
     }
+}
+
+void checkMovCab(struct pieza copy[8][8], int x, int y) {
+    ArribaI(copy, x, y);
+    AbajoI(copy, x, y);
+    AbajoD(copy, x, y);
+    ArribaD(copy, x, y);
+    IzquierdaD(copy, x, y);
+    IzquierdaI(copy, x, y);
+    DerechaD(copy, x, y);
+    DerechaI(copy, x, y);
+    setlocale(LC_CTYPE, "");
+    for (int i = 0; i < 8; i++) {
+        for (int j = 0; j < 8; j++) {
+            if(strcmp(copy[i][j].simbolo, " ") == 0) {
+            }else {
+                printf("%s ",copy[i][j].simbolo);
+            }
+        }
+        printf("\n");
+    }
+}
+
+void menuCa(struct pieza tablero[8][8], int x, int y) {
+    char col;
+    checkMovCab(tablero, x, y);
+    printf("A que posicion desea moverse? ");
+    printf("Ingresa la fila destino");
+    scanf("%d",&x);
+    printf("Ingresa la columna destino");
+    scanf("%c",&col);
+    scanf("%c",&col);
 }
