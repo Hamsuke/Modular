@@ -28,6 +28,8 @@ void setTablero();
 
 void mueveP(struct pieza* origen, struct pieza* destino);
 
+void limpiarTablero();
+
 char numaChar(int Y);
 int charaNum(char Y);
 

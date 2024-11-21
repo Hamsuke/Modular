@@ -30,6 +30,7 @@ int main(void){
     do {
         RNV = false;
         RBV = false;
+        limpiarTablero();
         printTablero(&RNV, &RBV);
         menuPrin(&turno);
     }while (RNV && RBV);

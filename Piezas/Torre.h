@@ -5,12 +5,12 @@
 #ifndef TORRE_H
 #define TORRE_H
 
-void arriba(struct pieza p[8][8], int x, int y);
-void abajo(struct pieza p[8][8], int x, int y);
-void derecha(struct pieza p[8][8], int x, int y);
-void izquierda(struct pieza p[8][8], int x, int y);
+void Toarriba(struct pieza p[8][8], int x, int y);
+void Toabajo(struct pieza p[8][8], int x, int y);
+void Toderecha(struct pieza p[8][8], int x, int y);
+void Toizquierda(struct pieza p[8][8], int x, int y);
 
-void checkMov(struct pieza tablero[8][8]);
+void TcheckMov(struct pieza tablero[8][8], int x, int y);
 void menuT(struct pieza tablero[8][8], int x, int y);
 
 

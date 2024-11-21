@@ -1,8 +1,6 @@
 //
-// Created by victo on 31/10/2024.
+// Created by victor on 31/10/2024.
 //
-
-
 
 #include "Pieza.h"
 #include "Rey.cpp"
@@ -18,7 +16,7 @@ void setTablero() {
 
     for(int i = 0; i < 8; i++){
         for(int j = 0; j < 8; j++){
-            tablero[i][j].simbolo = " ";
+            tablero[i][j].simbolo = "";
         }
     }
 
@@ -32,7 +30,7 @@ void setTablero() {
         tablero[1][i].simbolo = "♟";
     }
 
-    //Piezas negras
+    //Piezas negrasaa7
     //Rey [fila][columna]
     tablero[0][3].color = 'n';
     tablero[0][3].simbolo = "♚";
@@ -55,8 +53,8 @@ void setTablero() {
 
     //Piezas Blancas
     //Rey [fila][columna]
-    tablero[4][3].color = 'b';
-    tablero[4][3].simbolo = "♔";
+    tablero[7][3].color = 'b';
+    tablero[7][3].simbolo = "♔";
 
     //Reina
     tablero[7][4].color = 'b';
@@ -79,14 +77,30 @@ void setTablero() {
 
 }
 
-void printTablero(bool* RB, bool* RN) {
-    setlocale(LC_CTYPE, "");
+void limpiarTablero(){
     for (int i = 0; i < 8; i++) {
         for (int j = 0; j < 8; j++) {
+            if(strcmp(tablero[i][j].simbolo, Ar) == 0 || strcmp(tablero[i][j].simbolo, DiAD) == 0
+               || strcmp(tablero[i][j].simbolo, Ab) == 0 || strcmp(tablero[i][j].simbolo, DiAI) == 0
+               || strcmp(tablero[i][j].simbolo, Izq) == 0 || strcmp(tablero[i][j].simbolo, DiAbI) == 0
+               || strcmp(tablero[i][j].simbolo, Der) == 0 || strcmp(tablero[i][j].simbolo, DiAbD) == 0){
+                tablero[i][j].simbolo = "";
+            }
+        }
+    }
+}
 
-            if(strcmp(tablero[i][j].simbolo, " ") == 0) {
-            }else {
-                printf("%s",tablero[i][j].simbolo);
+void printTablero(bool* RB, bool* RN) {
+    setlocale(LC_CTYPE, "");
+    printf("  a,b, c d,e f, g h\n");
+    for (int i = 0; i < 8; i++) {
+        printf("%d ", 8 - i); // Imprime el número de la fila, de arriba a abajo (8-1)
+        for (int j = 0; j < 8; j++) {
+            // Si la casilla está vacía, imprimimos un espacio
+            if (strcmp(tablero[i][j].simbolo, "") == 0) {
+                printf("  ");
+            } else {
+                printf("%s ", tablero[i][j].simbolo); // Imprime el símbolo de la pieza
             }
             if (strcmp(tablero[i][j].simbolo, "♚") == 0) {
                 *RN = true;
@@ -146,12 +160,12 @@ void listaPiezas(char C) {
     for(int i = 0; i < 8; i++) {
         for(int j = 0; j < 8; j++) {
             if(tablero[i][j].color == C) {
-                printf("%s", tablero[i][j].simbolo);
+                printf("%s ", tablero[i][j].simbolo);
                 tmp = numaChar(j);
                 printf("%d %c", i + 1, tmp);
+                printf("\n");
             }
         }
-        printf("\n");
     }
 }
 
@@ -161,21 +175,23 @@ void menuB(){
     char col;
     listaPiezas('b');
     printf("Ingresa la fila de la pieza");
+    printf("\n");
     scanf("%d",&X);
     printf("Ingresa la columna de la pieza");
+    printf("\n");
     scanf("%c",&col);
     scanf("%c",&col);
     Y = charaNum(col);
     if(strcmp(tablero[X-1][Y].simbolo, "♔") == 0) {
-        menuR(tablero,X-1,Y);
+        menuR(tablero,X - 1,Y);
     } else if(strcmp(tablero[X-1][Y].simbolo, "♙") == 0){
-        peonB(tablero, X - 1, Y);
+        menuP(tablero, X - 1, Y, 'b');
     } else if(strcmp(tablero[X-1][Y].simbolo, "♗") == 0){
-
+        menuAl(tablero, X - 1, Y);
     } else if(strcmp(tablero[X-1][Y].simbolo, "♖") == 0){
-
+        menuT(tablero, X - 1, Y);
     } else if(strcmp(tablero[X-1][Y].simbolo, "♘") == 0){
-
+        menuCa(tablero, X - 1, Y);
     } else if(strcmp(tablero[X-1][Y].simbolo, "♕") == 0){
 
     } else{
@@ -199,11 +215,11 @@ void menuN(){
     } else if(strcmp(tablero[X-1][Y].simbolo, "♟") == 0){
         peonN(tablero, X - 1, Y);
     } else if(strcmp(tablero[X-1][Y].simbolo, "♝") == 0){
-
+        menuAl(tablero,X-1, Y);
     } else if(strcmp(tablero[X-1][Y].simbolo, "♜") == 0){
-
+        menuT(tablero, X - 1, Y);
     } else if(strcmp(tablero[X-1][Y].simbolo, "♞") == 0){
-
+        menuCa(tablero, X - 1, Y);
     } else if(strcmp(tablero[X-1][Y].simbolo, "♕") == 0){
 
     } else{
